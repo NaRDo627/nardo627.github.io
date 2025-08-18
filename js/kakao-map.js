@@ -59,6 +59,9 @@ class KakaoMapHandler {
             // 지도 컨트롤 추가
             this.addMapControls();
             
+            // 지도 중심을 정확한 위치로 재설정
+            this.map.setCenter(new kakao.maps.LatLng(this.weddingLocation.lat, this.weddingLocation.lng));
+            
             console.log('Kakao Map initialized successfully');
             
         } catch (error) {
