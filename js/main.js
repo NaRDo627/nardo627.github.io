@@ -151,7 +151,7 @@ class WeddingInvitation {
             content: {
                 title: '[현국♥수민] 결혼합니다',
                 description: '2026년 4월 4일 토요일 오후 1시 20분\n웨딩시티 신도림 아모르홀에서 열리는 결혼식에 초대합니다.',
-                imageUrl: window.location.origin + '/images/cover/main-cover.jpg',
+                imageUrl: window.location.origin + '/images/cover/main-cover.jpeg',
                 link: {
                     mobileWebUrl: window.location.href,
                     webUrl: window.location.href,
