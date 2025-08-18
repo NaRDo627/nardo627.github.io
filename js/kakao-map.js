@@ -4,10 +4,10 @@ class KakaoMapHandler {
         this.map = null;
         this.marker = null;
         this.weddingLocation = {
-            name: '○○○ 컨벤션센터',
-            address: '서울특별시 ○○구 ○○로 123',
-            lat: 37.5665, // 서울시청 좌표 (예시)
-            lng: 126.9780
+            name: '웨딩시티 신도림 아모르홀',
+            address: '서울특별시 구로구 새말로 97 신도림 테크노마트 8층',
+            lat: 37.508631, // 신도림 테크노마트 좌표
+            lng: 126.890966
         };
         
         this.init();
