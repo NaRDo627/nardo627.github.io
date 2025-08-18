@@ -6,8 +6,8 @@ class KakaoMapHandler {
         this.weddingLocation = {
             name: '웨딩시티 신도림 아모르홀',
             address: '서울특별시 구로구 새말로 97 신도림 테크노마트 8층',
-            lat: 37.508631, // 신도림 테크노마트 좌표
-            lng: 126.890966
+            lat: 37.50701174253426, // 웨딩시티 신도림 정확한 좌표
+            lng: 126.89020234539794
         };
         
         this.init();
