@@ -24,18 +24,25 @@ class GalleryGrid {
     setupEventListeners() {
         // 더보기/접기 버튼 이벤트
         if (this.toggleBtn) {
-            this.toggleBtn.addEventListener('click', () => {
+            this.toggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Gallery toggle button clicked'); // 디버깅용
                 this.toggleGallery();
             });
+        } else {
+            console.error('Gallery toggle button not found!'); // 디버깅용
         }
     }
     
     toggleGallery() {
+        console.log('Toggle gallery called, current state:', this.isExpanded); // 디버깅용
         this.isExpanded = !this.isExpanded;
         
         if (this.isExpanded) {
+            console.log('Showing all images'); // 디버깅용
             this.showAllImages();
         } else {
+            console.log('Hiding extra images'); // 디버깅용
             this.hideExtraImages();
         }
         
@@ -48,21 +55,23 @@ class GalleryGrid {
         this.hiddenItems.forEach((item, index) => {
             setTimeout(() => {
                 item.classList.remove('gallery-hidden');
+                
+                // 초기 상태 설정
                 item.style.opacity = '0';
                 item.style.transform = 'translateY(20px)';
+                item.style.transition = 'all 0.4s ease';
                 
-                // 애니메이션 적용
-                setTimeout(() => {
-                    item.style.transition = 'all 0.4s ease';
+                // 애니메이션 시작
+                requestAnimationFrame(() => {
                     item.style.opacity = '1';
                     item.style.transform = 'translateY(0)';
-                }, 50);
+                });
                 
                 // AOS 애니메이션 재적용
                 if (typeof AOS !== 'undefined') {
                     AOS.refreshHard();
                 }
-            }, index * 100); // 순차적 애니메이션
+            }, index * 80); // 순차적 애니메이션 (조금 더 빠르게)
         });
     }
     
@@ -119,18 +128,30 @@ class GalleryGrid {
     }
     
     setupLazyLoading() {
-        // Intersection Observer를 사용한 지연 로딩
+        // Intersection Observer를 사용한 지연 로딩 (숨겨진 이미지에만 적용)
         if ('IntersectionObserver' in window) {
             const imageObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const img = entry.target;
                         
-                        // 이미지 로딩 시작
-                        img.style.opacity = '0';
+                        // 이미지가 이미 로드된 경우 바로 표시
+                        if (img.complete && img.naturalHeight !== 0) {
+                            img.style.opacity = '1';
+                            observer.unobserve(img);
+                            return;
+                        }
+                        
+                        // 이미지 로딩 시작 (초기에는 투명하게 설정하지 않음)
                         img.onload = () => {
                             img.style.transition = 'opacity 0.3s ease';
                             img.style.opacity = '1';
+                        };
+                        
+                        // 이미지 로딩 실패 시 처리
+                        img.onerror = () => {
+                            img.style.opacity = '0.5';
+                            img.alt = '이미지를 불러올 수 없습니다';
                         };
                         
                         observer.unobserve(img);
@@ -141,8 +162,8 @@ class GalleryGrid {
                 threshold: 0.1
             });
             
-            // 모든 갤러리 이미지에 observer 적용
-            this.allItems.forEach(item => {
+            // 숨겨진 갤러리 이미지에만 observer 적용
+            this.hiddenItems.forEach(item => {
                 const img = item.querySelector('img');
                 if (img) {
                     imageObserver.observe(img);
@@ -445,12 +466,7 @@ class GalleryGrid {
     }
 }
 
-// 전역 함수 (HTML에서 호출)
-window.toggleGallery = function() {
-    if (window.galleryGrid) {
-        window.galleryGrid.toggleGallery();
-    }
-};
+// 전역 함수 (HTML에서 호출) - 제거됨, 이제 addEventListener 사용
 
 // DOM 로드 완료 후 갤러리 초기화
 document.addEventListener('DOMContentLoaded', function() {
