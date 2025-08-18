@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="○○○ ♥ ○○○ 결혼식에 초대합니다">
+    <meta name="keywords" content="모바일청첩장, 결혼식, 청첩장">
+    <meta property="og:title" content="○○○ ♥ ○○○ 결혼식 초대">
+    <meta property="og:description" content="○○○○년 ○월 ○일 결혼식에 초대합니다">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nardo627.github.io">
+    <meta property="og:image" content="https://nardo627.github.io/images/cover/main-cover.jpg">
+    
+    <title>○○○ ♥ ○○○ 모바일 청첩장</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 메인 커버 섹션 -->
+    <section id="main-cover" class="section">
+        <div class="cover-background">
+            <img src="images/cover/main-cover.jpg" alt="신랑신부 사진" class="cover-image">
+            <div class="cover-overlay"></div>
+        </div>
+        <div class="cover-content">
+            <h1 class="couple-names">
+                <span class="groom-name">○○○</span>
+                <span class="heart">♥</span>
+                <span class="bride-name">○○○</span>
+            </h1>
+            <p class="wedding-date">2024년 12월 21일 토요일 오후 2시</p>
+            <p class="wedding-venue">○○○ 컨벤션센터 ○층 ○○홀</p>
+            
+            <div class="countdown-container">
+                <p class="countdown-title">결혼식까지</p>
+                <div id="countdown" class="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">일</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">시간</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">분</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">초</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 인사말 섹션 -->
+    <section id="greeting" class="section" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">인사말</h2>
+            <div class="greeting-content">
+                <p class="greeting-text">
+                    서로 다른 두 사람이 만나<br>
+                    하나의 새로운 가정을 이루려 합니다.<br><br>
+                    
+                    오랜 시간 함께하며 서로를 이해하고<br>
+                    사랑하는 마음을 키워왔습니다.<br><br>
+                    
+                    이제 평생을 함께 걸어갈<br>
+                    소중한 약속을 하려 합니다.<br><br>
+                    
+                    저희의 새로운 시작을<br>
+                    축복해 주시기 바랍니다.
+                </p>
+            </div>
+            
+            <div class="family-info">
+                <div class="family-side">
+                    <h3>신랑측</h3>
+                    <div class="parents">
+                        <p><span class="father">○○○</span> · <span class="mother">○○○</span>의 아들 <span class="child">○○○</span></p>
+                    </div>
+                    <div class="contact">
+                        <a href="tel:010-0000-0000" class="phone-link">
+                            <span class="phone-icon">📞</span>
+                            신랑에게 연락하기
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="family-side">
+                    <h3>신부측</h3>
+                    <div class="parents">
+                        <p><span class="father">○○○</span> · <span class="mother">○○○</span>의 딸 <span class="child">○○○</span></p>
+                    </div>
+                    <div class="contact">
+                        <a href="tel:010-0000-0000" class="phone-link">
+                            <span class="phone-icon">📞</span>
+                            신부에게 연락하기
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 결혼식 정보 섹션 -->
+    <section id="wedding-info" class="section" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">결혼식 정보</h2>
+            
+            <div class="wedding-details">
+                <div class="detail-item">
+                    <div class="detail-icon">📅</div>
+                    <div class="detail-content">
+                        <h3>예식 일시</h3>
+                        <p>2024년 12월 21일 토요일</p>
+                        <p class="time">오후 2시 (1시 30분 입장)</p>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">🏛️</div>
+                    <div class="detail-content">
+                        <h3>예식장</h3>
+                        <p>○○○ 컨벤션센터 ○층 ○○홀</p>
+                        <p class="address">서울특별시 ○○구 ○○로 123</p>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">🍽️</div>
+                    <div class="detail-content">
+                        <h3>피로연</h3>
+                        <p>예식 후 같은 층 연회장</p>
+                        <p class="time">오후 3시 30분</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-section">
+                <h3>오시는 길</h3>
+                <div id="map" class="map-container">
+                    <p>지도를 불러오는 중...</p>
+                </div>
+                <div class="map-buttons">
+                    <a href="https://map.kakao.com/link/search/서울특별시 강남구 테헤란로 123" target="_blank" class="map-btn kakao">카카오맵</a>
+                    <a href="https://map.naver.com/v5/search/서울특별시 강남구 테헤란로 123" target="_blank" class="map-btn naver">네이버맵</a>
+                    <a href="https://maps.google.com/maps?q=서울특별시 강남구 테헤란로 123" target="_blank" class="map-btn google">구글맵</a>
+                </div>
+            </div>
+            
+            <div class="transportation">
+                <h3>교통편 안내</h3>
+                <div class="transport-info">
+                    <div class="transport-item">
+                        <h4>🚇 지하철</h4>
+                        <p>○호선 ○○역 3번 출구 도보 5분</p>
+                        <p>○호선 ○○역 1번 출구 도보 7분</p>
+                    </div>
+                    <div class="transport-item">
+                        <h4>🚌 버스</h4>
+                        <p>○○○, ○○○, ○○○번</p>
+                        <p>○○○ 정류장 하차</p>
+                    </div>
+                    <div class="transport-item">
+                        <h4>🚗 주차</h4>
+                        <p>건물 지하 1~3층 주차 가능</p>
+                        <p>3시간 무료 주차</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 갤러리 섹션 -->
+    <section id="gallery" class="section" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">갤러리</h2>
+            
+            <div class="swiper gallery-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="images/gallery/photo1.jpg" alt="갤러리 사진 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/gallery/photo2.jpg" alt="갤러리 사진 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/gallery/photo3.jpg" alt="갤러리 사진 3">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/gallery/photo4.jpg" alt="갤러리 사진 4">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/gallery/photo5.jpg" alt="갤러리 사진 5">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/gallery/photo6.jpg" alt="갤러리 사진 6">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 축의금 안내 섹션 -->
+    <section id="donation" class="section" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">축의금 안내</h2>
+            
+            <p class="donation-desc">
+                참석이 어려우신 분들을 위해<br>
+                축의금 전달 방법을 안내드립니다.
+            </p>
+            
+            <div class="account-info">
+                <div class="account-side">
+                    <h3>신랑측</h3>
+                    <div class="account-details">
+                        <p class="bank">○○은행</p>
+                        <p class="account-number" data-account="123-456-789012">
+                            123-456-789012
+                            <button class="copy-btn" onclick="copyAccount(this)">복사</button>
+                        </p>
+                        <p class="account-holder">○○○</p>
+                    </div>
+                    <div class="quick-transfer">
+                        <a href="#" class="transfer-btn kakaopay">카카오페이</a>
+                        <a href="#" class="transfer-btn toss">토스</a>
+                    </div>
+                </div>
+                
+                <div class="account-side">
+                    <h3>신부측</h3>
+                    <div class="account-details">
+                        <p class="bank">○○은행</p>
+                        <p class="account-number" data-account="987-654-321098">
+                            987-654-321098
+                            <button class="copy-btn" onclick="copyAccount(this)">복사</button>
+                        </p>
+                        <p class="account-holder">○○○</p>
+                    </div>
+                    <div class="quick-transfer">
+                        <a href="#" class="transfer-btn kakaopay">카카오페이</a>
+                        <a href="#" class="transfer-btn toss">토스</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                소중한 분들과 함께하는<br>
+                ○○○ ♥ ○○○의 결혼식
+            </p>
+            <div class="share-buttons">
+                <button class="share-btn kakao" onclick="shareKakao()">카카오톡 공유</button>
+                <button class="share-btn link" onclick="copyLink()">링크 복사</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 스크립트 -->
+    <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_KAKAO_MAP_API_KEY"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/kakao-map.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

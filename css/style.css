@@ -1,0 +1,615 @@
+/* CSS 변수 정의 */
+:root {
+    --primary-color: #8B4F92;
+    --secondary-color: #D4A5A5;
+    --accent-color: #F2E7DC;
+    --text-dark: #2C2C2C;
+    --text-light: #6C6C6C;
+    --white: #FFFFFF;
+    --gray-light: #F8F8F8;
+    --gray-medium: #E0E0E0;
+    
+    --font-primary: 'Noto Sans KR', sans-serif;
+    --font-accent: 'Dancing Script', cursive;
+    
+    --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
+    --shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+/* 기본 스타일 리셋 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+/* 공통 스타일 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 60px 0;
+    position: relative;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+/* 메인 커버 섹션 */
+#main-cover {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+}
+
+.cover-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.cover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(139, 79, 146, 0.3), rgba(212, 165, 165, 0.3));
+    z-index: -1;
+}
+
+.cover-content {
+    text-align: center;
+    color: var(--white);
+    z-index: 1;
+    animation: fadeInUp 1s ease-out;
+}
+
+.couple-names {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.couple-names .heart {
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+    margin: 0 0.5rem;
+    animation: heartbeat 2s infinite;
+}
+
+.wedding-date {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.wedding-venue {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* 카운트다운 스타일 */
+.countdown-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.countdown-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.countdown-item {
+    text-align: center;
+    min-width: 60px;
+}
+
+.countdown-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* 인사말 섹션 */
+#greeting {
+    background: linear-gradient(135deg, var(--accent-color), var(--white));
+}
+
+.greeting-content {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.greeting-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.family-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.family-side {
+    text-align: center;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+.family-side h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.parents {
+    margin-bottom: 2rem;
+}
+
+.parents p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.father, .mother, .child {
+    font-weight: 500;
+}
+
+.contact {
+    margin-top: 1.5rem;
+}
+
+.phone-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.phone-link:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.phone-icon {
+    font-size: 1.2rem;
+}
+
+/* 결혼식 정보 섹션 */
+#wedding-info {
+    background: var(--white);
+}
+
+.wedding-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 2rem;
+    background: var(--gray-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+.detail-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.detail-content h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.detail-content p {
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+}
+
+.detail-content .time {
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.detail-content .address {
+    font-size: 0.9rem;
+}
+
+/* 지도 섹션 */
+.map-section {
+    margin-bottom: 3rem;
+}
+
+.map-section h3 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.map-container {
+    width: 100%;
+    height: 300px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    margin-bottom: 1rem;
+    background: var(--gray-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+}
+
+.map-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.map-btn {
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.map-btn.kakao {
+    background: #FEE500;
+    color: #000;
+}
+
+.map-btn.naver {
+    background: #03C75A;
+    color: var(--white);
+}
+
+.map-btn.google {
+    background: #4285F4;
+    color: var(--white);
+}
+
+.map-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+/* 교통편 안내 */
+.transportation h3 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.transport-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.transport-item {
+    text-align: center;
+    padding: 2rem;
+    background: var(--gray-light);
+    border-radius: var(--border-radius);
+}
+
+.transport-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.transport-item p {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+/* 갤러리 섹션 */
+#gallery {
+    background: linear-gradient(135deg, var(--gray-light), var(--white));
+}
+
+.gallery-swiper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.gallery-swiper .swiper-slide {
+    text-align: center;
+}
+
+.gallery-swiper .swiper-slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+}
+
+.gallery-swiper .swiper-pagination-bullet {
+    background: var(--primary-color);
+}
+
+.gallery-swiper .swiper-button-next,
+.gallery-swiper .swiper-button-prev {
+    color: var(--primary-color);
+}
+
+/* 축의금 안내 섹션 */
+#donation {
+    background: var(--accent-color);
+}
+
+.donation-desc {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+    line-height: 1.8;
+}
+
+.account-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.account-side {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    text-align: center;
+}
+
+.account-side h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.account-details {
+    margin-bottom: 2rem;
+}
+
+.bank {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.account-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.copy-btn {
+    background: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.copy-btn:hover {
+    background: var(--primary-color);
+}
+
+.account-holder {
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.quick-transfer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.transfer-btn {
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.transfer-btn.kakaopay {
+    background: #FEE500;
+    color: #000;
+}
+
+.transfer-btn.toss {
+    background: #0064FF;
+    color: var(--white);
+}
+
+.transfer-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+/* 푸터 */
+.footer {
+    background: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.footer-text {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.share-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.share-btn.kakao {
+    background: #FEE500;
+    color: #000;
+}
+
+.share-btn.link {
+    background: var(--white);
+    color: var(--primary-color);
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+/* 애니메이션 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* AOS 애니메이션 커스터마이징 */
+[data-aos="fade-up"] {
+    transform: translate3d(0, 40px, 0);
+    opacity: 0;
+    transition-property: transform, opacity;
+}
+
+[data-aos="fade-up"].aos-animate {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+}
