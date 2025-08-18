@@ -16,6 +16,11 @@
     }
     
     /* 메인 커버 */
+    .cover-content {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+    
     .couple-names {
         font-size: 2.5rem;
     }
@@ -161,6 +166,12 @@
     }
     
     /* 메인 커버 */
+    .cover-content {
+        padding: 1.5rem 1rem;
+        margin: 0 0.5rem;
+        border-radius: 15px;
+    }
+    
     .couple-names {
         font-size: 2rem;
     }

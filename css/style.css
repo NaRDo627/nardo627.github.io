@@ -112,13 +112,23 @@ body {
     color: var(--white);
     z-index: 1;
     animation: fadeInUp 1s ease-out;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .couple-names {
     font-size: 3rem;
-    font-weight: 300;
+    font-weight: 500;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 
+        2px 2px 4px rgba(0,0,0,0.8),
+        0 0 10px rgba(0,0,0,0.5),
+        0 0 20px rgba(0,0,0,0.3);
+    -webkit-text-stroke: 0.5px rgba(255,255,255,0.3);
 }
 
 .couple-names .heart {
@@ -130,16 +140,22 @@ body {
 
 .wedding-date {
     font-size: 1.3rem;
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 0.5rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    text-shadow: 
+        1px 1px 3px rgba(0,0,0,0.8),
+        0 0 8px rgba(0,0,0,0.4);
+    -webkit-text-stroke: 0.3px rgba(255,255,255,0.2);
 }
 
 .wedding-venue {
     font-size: 1.1rem;
-    font-weight: 300;
+    font-weight: 400;
     margin-bottom: 3rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    text-shadow: 
+        1px 1px 3px rgba(0,0,0,0.8),
+        0 0 8px rgba(0,0,0,0.4);
+    -webkit-text-stroke: 0.2px rgba(255,255,255,0.2);
 }
 
 /* 카운트다운 스타일 */
