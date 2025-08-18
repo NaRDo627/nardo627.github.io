@@ -109,8 +109,18 @@
     }
     
     /* 갤러리 */
-    .gallery-swiper .swiper-slide img {
-        height: 300px;
+    .gallery-grid {
+        gap: 10px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .gallery-item {
+        border-radius: 8px;
+    }
+    
+    .gallery-toggle-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
     }
     
     /* 축의금 */
@@ -249,8 +259,18 @@
     }
     
     /* 갤러리 */
-    .gallery-swiper .swiper-slide img {
-        height: 250px;
+    .gallery-grid {
+        gap: 8px;
+        margin-bottom: 1rem;
+    }
+    
+    .gallery-item {
+        border-radius: 6px;
+    }
+    
+    .gallery-toggle-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
     }
     
     /* 축의금 */
