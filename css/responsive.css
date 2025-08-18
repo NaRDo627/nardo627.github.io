@@ -42,6 +42,19 @@
         padding: 1.5rem;
     }
     
+    /* 스크롤 힌트 */
+    .scroll-hint {
+        bottom: 1.5rem;
+    }
+    
+    .scroll-hint-text {
+        font-size: 0.8rem;
+    }
+    
+    .scroll-hint-arrow {
+        font-size: 1.2rem;
+    }
+    
     .countdown {
         gap: 0.5rem;
     }
@@ -192,6 +205,19 @@
     
     .countdown-container {
         padding: 1rem;
+    }
+    
+    /* 스크롤 힌트 */
+    .scroll-hint {
+        bottom: 1rem;
+    }
+    
+    .scroll-hint-text {
+        font-size: 0.75rem;
+    }
+    
+    .scroll-hint-arrow {
+        font-size: 1rem;
     }
     
     .countdown-number {

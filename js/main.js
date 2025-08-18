@@ -258,11 +258,17 @@ class WeddingInvitation {
     }
     
     setupScrollEffects() {
-        // 스크롤에 따른 헤더 효과 (필요시)
+        // 스크롤에 따른 효과 처리
         let lastScrollTop = 0;
         
         window.addEventListener('scroll', () => {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            
+            // 메인 커버 섹션에서의 스크롤 처리
+            if (scrollTop < windowHeight) {
+                this.handleCoverScroll(scrollTop, windowHeight);
+            }
             
             // 스크롤 방향에 따른 처리
             if (scrollTop > lastScrollTop) {
@@ -275,6 +281,22 @@ class WeddingInvitation {
             
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         }, { passive: true });
+    }
+    
+    handleCoverScroll(scrollTop, windowHeight) {
+        // 메인 커버에서의 스크롤 진행 상황 처리
+        const scrollProgress = scrollTop / windowHeight;
+        
+        // 스크롤이 충분히 진행되면 다음 섹션으로 부드럽게 이동 유도
+        if (scrollProgress > 0.8) {
+            // 80% 이상 스크롤하면 다음 섹션 힌트 표시 등의 처리 가능
+            this.showNextSectionHint();
+        }
+    }
+    
+    showNextSectionHint() {
+        // 다음 섹션으로의 이동을 유도하는 시각적 힌트
+        // 예: 아래 화살표 표시, 살짝 다음 섹션 미리보기 등
     }
     
     onScrollDown() {
@@ -330,27 +352,49 @@ class WeddingInvitation {
     }
     
     setupCoverTextDelayedLoading() {
-        // 메인 커버 이미지 로딩 완료 후 텍스트 표시
-        const coverImage = document.querySelector('.cover-image');
+        // 스크롤 기반 메인 커버 텍스트 인터랙션
+        const coverSection = document.querySelector('#main-cover');
         const coverContent = document.querySelector('.cover-content');
+        const scrollHint = document.querySelector('#scrollHint');
         
-        if (coverImage && coverContent) {
-            // 이미지 로딩 완료 감지
-            const showCoverText = () => {
-                setTimeout(() => {
-                    coverContent.classList.add('show');
-                }, 1500); // 1.5초 지연 후 텍스트 표시
-            };
+        if (!coverSection || !coverContent) return;
+        
+        let isTextVisible = false;
+        let isHintHidden = false;
+        
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const scrollProgress = Math.min(scrollY / (windowHeight * 0.3), 1); // 30% 스크롤에서 완전히 나타남
             
-            if (coverImage.complete && coverImage.naturalHeight !== 0) {
-                // 이미지가 이미 로딩된 경우
-                showCoverText();
-            } else {
-                // 이미지 로딩 대기
-                coverImage.addEventListener('load', showCoverText);
-                coverImage.addEventListener('error', showCoverText); // 에러 시에도 텍스트 표시
+            // 스크롤 힌트 숨기기
+            if (scrollY > 50 && !isHintHidden && scrollHint) {
+                scrollHint.classList.add('hide');
+                isHintHidden = true;
+            } else if (scrollY <= 50 && isHintHidden && scrollHint) {
+                scrollHint.classList.remove('hide');
+                isHintHidden = false;
             }
-        }
+            
+            if (scrollProgress > 0.1 && !isTextVisible) {
+                // 스크롤이 시작되면 텍스트 표시
+                coverContent.classList.add('show');
+                isTextVisible = true;
+            }
+            
+            // 스크롤 진행도에 따른 텍스트 위치 조정 (더 자연스러운 효과)
+            if (isTextVisible) {
+                const translateY = Math.max(0, (1 - scrollProgress) * 20); // 최대 20px 위로 이동
+                coverContent.style.transform = `translateY(${translateY}px)`;
+                coverContent.style.opacity = Math.min(1, scrollProgress * 3); // 빠르게 나타남
+            }
+        };
+        
+        // 스크롤 이벤트 리스너 추가 (쓰로틀링 적용)
+        window.addEventListener('scroll', this.constructor.throttle(handleScroll, 16)); // 60fps
+        
+        // 초기 상태 체크
+        handleScroll();
     }
     
     showPageContent() {
