@@ -217,7 +217,10 @@
             
             <p class="donation-desc">
                 참석이 어려우신 분들을 위해<br>
-                축의금 전달 방법을 안내드립니다.
+                축의금 전달 방법을 안내드립니다.<br><br>
+                <small style="color: #888; font-size: 0.9rem;">
+                    💡 카카오페이 또는 토스 버튼을 눌러 간편하게 송금하실 수 있습니다.
+                </small>
             </p>
             
             <div class="account-info">
@@ -232,24 +235,24 @@
                         <p class="account-holder">박현국</p>
                     </div>
                     <div class="quick-transfer">
-                        <a href="#" class="transfer-btn kakaopay">카카오페이</a>
-                        <a href="#" class="transfer-btn toss">토스</a>
+                        <button class="transfer-btn kakaopay" onclick="openKakaoPay('groom')">카카오페이</button>
+                        <button class="transfer-btn toss" onclick="openToss('groom')">토스</button>
                     </div>
                 </div>
                 
                 <div class="account-side">
                     <h3>신부측</h3>
                     <div class="account-details">
-                        <p class="bank">○○은행</p>
-                        <p class="account-number" data-account="987-654-321098">
-                            987-654-321098
+                        <p class="bank">농협은행</p>
+                        <p class="account-number" data-account="352-1234-5678-90">
+                            352-1234-5678-90
                             <button class="copy-btn" onclick="copyAccount(this)">복사</button>
                         </p>
-                        <p class="account-holder">○○○</p>
+                        <p class="account-holder">조수민</p>
                     </div>
                     <div class="quick-transfer">
-                        <a href="#" class="transfer-btn kakaopay">카카오페이</a>
-                        <a href="#" class="transfer-btn toss">토스</a>
+                        <button class="transfer-btn kakaopay" onclick="openKakaoPay('bride')">카카오페이</button>
+                        <button class="transfer-btn toss" onclick="openToss('bride')">토스</button>
                     </div>
                 </div>
             </div>
@@ -279,6 +282,7 @@
     <script src="js/countdown.js"></script>
     <script src="js/gallery.js"></script>
     <script src="js/kakao-map.js"></script>
+    <script src="js/payment.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

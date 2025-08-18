@@ -517,9 +517,16 @@ body {
 .transfer-btn {
     padding: 0.8rem 1.5rem;
     text-decoration: none;
+    border: none;
     border-radius: 25px;
     font-weight: 500;
+    cursor: pointer;
+    font-size: 0.9rem;
     transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
 }
 
 .transfer-btn.kakaopay {
