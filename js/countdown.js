@@ -86,8 +86,8 @@ class WeddingCountdown {
 
 // DOM 로드 완료 후 카운트다운 시작
 document.addEventListener('DOMContentLoaded', function() {
-    // 결혼식 날짜 설정 (예: 2024년 12월 21일 오후 2시)
-    const weddingDate = '2024-12-21T14:00:00';
+    // 결혼식 날짜 설정 (예: 2025년 4월 4일 오후 1시 20분)
+    const weddingDate = '2025-04-04T13:20:00';
     
     // 카운트다운 인스턴스 생성
     const countdown = new WeddingCountdown(weddingDate);
