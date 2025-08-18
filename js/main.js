@@ -367,19 +367,27 @@ class WeddingInvitation {
             const windowHeight = window.innerHeight;
             const scrollProgress = Math.min(scrollY / (windowHeight * 0.3), 1); // 30% 스크롤에서 완전히 나타남
             
-            // 스크롤 힌트 숨기기
-            if (scrollY > 50 && !isHintHidden && scrollHint) {
-                scrollHint.classList.add('hide');
-                isHintHidden = true;
-            } else if (scrollY <= 50 && isHintHidden && scrollHint) {
-                scrollHint.classList.remove('hide');
-                isHintHidden = false;
-            }
-            
             if (scrollProgress > 0.1 && !isTextVisible) {
                 // 스크롤이 시작되면 텍스트 표시
                 coverContent.classList.add('show');
                 isTextVisible = true;
+                
+                // 텍스트가 나타나면 즉시 힌트 숨기기
+                if (scrollHint && !isHintHidden) {
+                    scrollHint.classList.add('hide');
+                    isHintHidden = true;
+                }
+            }
+            
+            // 스크롤 힌트 숨기기 (텍스트가 아직 나타나지 않았을 때만)
+            if (!isTextVisible && scrollHint) {
+                if (scrollY > 30 && !isHintHidden) {
+                    scrollHint.classList.add('hide');
+                    isHintHidden = true;
+                } else if (scrollY <= 30 && isHintHidden) {
+                    scrollHint.classList.remove('hide');
+                    isHintHidden = false;
+                }
             }
             
             // 스크롤 진행도에 따른 텍스트 위치 조정 (더 자연스러운 효과)

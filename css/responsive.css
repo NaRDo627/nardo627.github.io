@@ -45,14 +45,16 @@
     /* 스크롤 힌트 */
     .scroll-hint {
         bottom: 1.5rem;
+        padding: 0.8rem 1.2rem;
+        border-radius: 20px;
     }
     
     .scroll-hint-text {
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
     
     .scroll-hint-arrow {
-        font-size: 1.2rem;
+        font-size: 1.6rem;
     }
     
     .countdown {
@@ -210,14 +212,16 @@
     /* 스크롤 힌트 */
     .scroll-hint {
         bottom: 1rem;
+        padding: 0.6rem 1rem;
+        border-radius: 18px;
     }
     
     .scroll-hint-text {
-        font-size: 0.75rem;
+        font-size: 0.9rem;
     }
     
     .scroll-hint-arrow {
-        font-size: 1rem;
+        font-size: 1.4rem;
     }
     
     .countdown-number {
