@@ -45,6 +45,9 @@ class WeddingInvitation {
             });
         }
         
+        // 메인 커버 텍스트 지연 로딩
+        this.setupCoverTextDelayedLoading();
+        
         // 페이지 로딩 애니메이션
         this.showPageContent();
         
@@ -323,6 +326,30 @@ class WeddingInvitation {
                 img.src = img.dataset.src;
                 img.removeAttribute('data-src');
             });
+        }
+    }
+    
+    setupCoverTextDelayedLoading() {
+        // 메인 커버 이미지 로딩 완료 후 텍스트 표시
+        const coverImage = document.querySelector('.cover-image');
+        const coverContent = document.querySelector('.cover-content');
+        
+        if (coverImage && coverContent) {
+            // 이미지 로딩 완료 감지
+            const showCoverText = () => {
+                setTimeout(() => {
+                    coverContent.classList.add('show');
+                }, 1500); // 1.5초 지연 후 텍스트 표시
+            };
+            
+            if (coverImage.complete && coverImage.naturalHeight !== 0) {
+                // 이미지가 이미 로딩된 경우
+                showCoverText();
+            } else {
+                // 이미지 로딩 대기
+                coverImage.addEventListener('load', showCoverText);
+                coverImage.addEventListener('error', showCoverText); // 에러 시에도 텍스트 표시
+            }
         }
     }
     

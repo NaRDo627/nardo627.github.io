@@ -17,8 +17,9 @@
     
     /* 메인 커버 */
     .cover-content {
-        padding: 2rem 1.5rem;
-        margin: 0 1rem;
+        padding: 2rem 1.5rem 2.5rem 1.5rem;
+        margin: 0 0.5rem 0 0.5rem;
+        border-radius: 15px 15px 0 0;
     }
     
     .couple-names {
@@ -167,9 +168,9 @@
     
     /* 메인 커버 */
     .cover-content {
-        padding: 1.5rem 1rem;
-        margin: 0 0.5rem;
-        border-radius: 15px;
+        padding: 1.5rem 1rem 2rem 1rem;
+        margin: 0 0.25rem 0 0.25rem;
+        border-radius: 12px 12px 0 0;
     }
     
     .couple-names {

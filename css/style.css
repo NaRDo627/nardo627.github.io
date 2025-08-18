@@ -75,8 +75,8 @@ body {
     height: 100vh;
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
     overflow: hidden;
     padding: 0;
 }
@@ -103,7 +103,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(139, 79, 146, 0.3), rgba(212, 165, 165, 0.3));
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0.4) 100%);
     z-index: -1;
 }
 
@@ -111,13 +111,22 @@ body {
     text-align: center;
     color: var(--white);
     z-index: 1;
-    animation: fadeInUp 1s ease-out;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(15px);
-    border-radius: 20px;
-    padding: 2.5rem 2rem;
+    border-radius: 20px 20px 0 0;
+    padding: 2.5rem 2rem 3rem 2rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border-bottom: none;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
+    margin: 0 1rem 0 1rem;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cover-content.show {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .couple-names {
