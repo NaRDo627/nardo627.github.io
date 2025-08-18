@@ -10,7 +10,7 @@ class PaymentManager {
             bride: {
                 name: '조수민',
                 bank: '농협은행',
-                account: '352-1234-5678-90'
+                account: '312-5094-9336-71'
             }
         };
     }
