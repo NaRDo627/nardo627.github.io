@@ -362,44 +362,37 @@ class WeddingInvitation {
         let isTextVisible = false;
         let isHintHidden = false;
         
+        console.log('스크롤 힌트 초기화:', scrollHint ? '찾음' : '못찾음');
+        
         const handleScroll = () => {
             const scrollY = window.scrollY;
             const windowHeight = window.innerHeight;
-            const scrollProgress = Math.min(scrollY / (windowHeight * 0.3), 1); // 30% 스크롤에서 완전히 나타남
+            const scrollProgress = Math.min(scrollY / (windowHeight * 0.3), 1);
             
+            // 스크롤 힌트 처리 - 단순화
+            if (scrollHint && scrollY > 10 && !isHintHidden) {
+                console.log('스크롤 힌트 숨기기 - scrollY:', scrollY);
+                scrollHint.classList.add('hide');
+                isHintHidden = true;
+            }
+            
+            // 텍스트 표시 처리
             if (scrollProgress > 0.1 && !isTextVisible) {
-                // 스크롤이 시작되면 텍스트 표시
+                console.log('텍스트 표시 - scrollProgress:', scrollProgress);
                 coverContent.classList.add('show');
                 isTextVisible = true;
-                
-                // 텍스트가 나타나면 즉시 힌트 숨기기
-                if (scrollHint && !isHintHidden) {
-                    scrollHint.classList.add('hide');
-                    isHintHidden = true;
-                }
             }
             
-            // 스크롤 힌트 숨기기 (텍스트가 아직 나타나지 않았을 때만)
-            if (!isTextVisible && scrollHint) {
-                if (scrollY > 30 && !isHintHidden) {
-                    scrollHint.classList.add('hide');
-                    isHintHidden = true;
-                } else if (scrollY <= 30 && isHintHidden) {
-                    scrollHint.classList.remove('hide');
-                    isHintHidden = false;
-                }
-            }
-            
-            // 스크롤 진행도에 따른 텍스트 위치 조정 (더 자연스러운 효과)
+            // 스크롤 진행도에 따른 텍스트 위치 조정
             if (isTextVisible) {
-                const translateY = Math.max(0, (1 - scrollProgress) * 20); // 최대 20px 위로 이동
+                const translateY = Math.max(0, (1 - scrollProgress) * 20);
                 coverContent.style.transform = `translateY(${translateY}px)`;
-                coverContent.style.opacity = Math.min(1, scrollProgress * 3); // 빠르게 나타남
+                coverContent.style.opacity = Math.min(1, scrollProgress * 3);
             }
         };
         
         // 스크롤 이벤트 리스너 추가 (쓰로틀링 적용)
-        window.addEventListener('scroll', this.constructor.throttle(handleScroll, 16)); // 60fps
+        window.addEventListener('scroll', this.constructor.throttle(handleScroll, 16));
         
         // 초기 상태 체크
         handleScroll();
