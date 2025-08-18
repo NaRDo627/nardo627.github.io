@@ -132,7 +132,7 @@ class WeddingInvitation {
         if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
             try {
                 // 실제 카카오 앱 JavaScript 키로 교체하세요
-                Kakao.init('YOUR_KAKAO_JAVASCRIPT_KEY');
+                Kakao.init('1c6879c50b5abdf882792a6020930ba6');
                 console.log('Kakao SDK initialized');
             } catch (error) {
                 console.error('Kakao SDK initialization failed:', error);
@@ -149,8 +149,8 @@ class WeddingInvitation {
         Kakao.Link.sendDefault({
             objectType: 'feed',
             content: {
-                title: '○○○ ♥ ○○○ 결혼식 초대',
-                description: '2024년 12월 21일 토요일 오후 2시\n○○○ 컨벤션센터에서 열리는 결혼식에 초대합니다.',
+                title: '박현국 ♥ 조수민 결혼식 초대',
+                description: '2025년 4월 4일 토요일 오후 1시 20분\n웨딩시티 신도림 아모르홀에서 열리는 결혼식에 초대합니다.',
                 imageUrl: window.location.origin + '/images/cover/main-cover.jpg',
                 link: {
                     mobileWebUrl: window.location.href,
